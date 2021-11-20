@@ -17,6 +17,11 @@ framework:
     php_errors:
         log: true
 
+    http_client:
+        scoped_clients:
+            tmdb.client:
+                base_uri: 'https://api.themoviedb.org/3/'
+
 when@test:
     framework:
         test: true

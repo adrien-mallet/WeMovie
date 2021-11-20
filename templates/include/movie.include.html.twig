@@ -1,0 +1,18 @@
+<img src="{{ generate_movie_db_path('w154', movie.posterPath) }}" alt="{{ movie.title }}" /> - {{ movie.title }}
+<div>
+    <ul>
+        {% for company in movie.productionCompanies %}
+            <li>{{ company.name }}</li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="vote">{{ movie.voteAverage }} ({{ movie.voteCount }})</div>
+<div>{{ movie.releaseDate|date("Y") }}</div>
+<p>{{ movie.overview }}</p>
+{% if movie.video %}
+    <div class="video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ movie.video.key }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+{% else %}
+    <img src="{{ generate_movie_db_path('w500', movie.backdropPath) }}" alt="{{ movie.title }}" />
+{% endif %}

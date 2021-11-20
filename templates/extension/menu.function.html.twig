@@ -1,0 +1,11 @@
+{% block menu %}
+    <nav>
+        <ul>
+            {% for genre in genres %}
+                <li>
+                    <a href="{{ path('movie_list', {'genres': genre.id}) }}">{{ genre.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+{% endblock %}
