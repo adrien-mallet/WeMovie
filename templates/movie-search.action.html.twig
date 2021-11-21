@@ -3,10 +3,10 @@
 {% block title %}Recherche Films{% endblock %}
 
 {% block body %}
-{{ show_menu() }}
 <main>
-    <h1>Resultat de le recherche</h1>
-    <ul>
+    {{ include('include/header.include.html.twig', {title: "Resultat de la recherche"}, with_context = false) }}
+    {{ show_menu() }}
+    <ul id="search-result-list">
         {% for movie in movies %}
         <li>
             <a href="{{ path('movie_details', {movieId: movie.id}) }}">

@@ -8,6 +8,7 @@ use App\Model\MovieVideo;
 use App\Provider\MovieProviderInterface;
 use Generator;
 use RuntimeException;
+use Symfony\Contracts\Cache\CacheInterface;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
@@ -31,11 +32,16 @@ class MovieProvider implements MovieProviderInterface
      * @var string
      */
     private $tmdbKey;
+    /**
+     * @var CacheInterface
+     */
+    private $tmdbCache;
 
-    public function __construct(HttpClientInterface $tmdbClient, string $tmdbKey)
+    public function __construct(CacheInterface $tmdbCache, HttpClientInterface $tmdbClient, string $tmdbKey)
     {
         $this->tmdbClient = $tmdbClient;
         $this->tmdbKey = $tmdbKey;
+        $this->tmdbCache = $tmdbCache;
     }
 
     /**

@@ -3,31 +3,28 @@
 {% block title %}Movie list{% endblock %}
 
 {% block body %}
-    {{ show_menu() }}
+    <div id="overlay"></div>
     <main>
-        <h1>A propos de We Movies</h1>
-        <form method="get" action="{{ path('search_movie') }}">
-            <input type="text" name="search">
-            <input type="submit">
-        </form>
+        {{ include('include/header.include.html.twig', {title: "A propos de We Movies"}, with_context = false) }}
             {% for movie in movies %}
                 {% if loop.first %}
-                <article>
+                <article class="article-first">
                     {% if movie.video %}
                     <div class="video">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ movie.video.key }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/{{ movie.video.key }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                     {% else %}
                         <img src="{{ generate_movie_db_path('w1280', movie.backdropPath) }}" alt="{{ movie.title }}" />
                     {% endif %}
-                    <img src="{{ generate_movie_db_path('w154', movie.posterPath) }}" alt="{{ movie.title }}" /> - {{ movie.title }}
                 </article>
-                <ul>
+                {{ show_menu() }}
+                <ul id="movie-list">
                 {% else %}
                 <li>
-                    <article>
+                    <article class="movie-item">
                         {{ include('include/movie.include.html.twig', {movie: movie}, with_context = false) }}
-                        <a href="{{ path('movie_details', {movieId: movie.id}) }}">Détails</a>
+                        <a class="movie-link" href="{{ path('movie_details', {movieId: movie.id}) }}">Lire le détails</a>
+                        <div class="clear"></div>
                     </article>
                 </li>
                 {% endif %}

@@ -1,3 +1,245 @@
 body {
+    width: 1280px;
+    margin: 0 auto;
+    font-family: "Gill Sans", sans-serif;
+}
+
+h1 {
+    font-size: 25px;
+    color: gray;
+    float: left;
+    border-bottom: 2px solid lightgray;
+    margin-top: 0px;
+    padding-bottom: 10px;
+}
+
+#overlay {
+    display: none;
+    background-color: black;
+    opacity: 70%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 4;
+}
+
+#autocomplete-result {
+    display: none;
+    position: absolute;
+    right: 0px;
+    top: 70px;
+    background: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+#autocomplete-result li {
+    list-style: none;
+    margin: 5px 0;
+}
+
+#autocomplete-result li a {
+    color: #666666;
+}
+
+.clear {
+    clear: both;
+}
+
+header {
+    padding-top: 20px;
+    position: relative;
+}
+
+#search_form {
+    float: right;
+    border: 2px solid lightgray;
+}
+
+#search_form input, #search_form button {
+    border: none;
+    background-color: transparent;
+    padding: 10px;
+    font-size: 20px;
+}
+
+#left-menu {
+    float: left;
+    width: 250px;
+    border: 2px solid lightgray;
+    margin-right: 20px;
+    position: relative;
+}
+
+#left-menu::before {
+    background-color: white;
+    content: " ";
+    width: 130px;
+    height: 20px;
+    position: absolute;
+    top: -10px;
+    left: 5px;
+}
+
+#left-menu li {
+    list-style: none;
+}
+
+#left-menu a {
+    color: gray;
+    text-decoration: none;
+    padding: 5px 0;
+    display: inline-block;
+}
+
+.article-first {
+    margin: 40px 0px 20px 0px;
+    width: 100%;
+}
+
+#movie-list {
+    float: left;
+    width: 965px;
+    margin: 0px;
+    list-style: none;
+}
+
+.movie-item {
     background-color: lightgray;
+    margin-bottom: 10px;
+    padding: 10px;
+    position: relative;
+}
+
+.companies, .companies li {
+    display: inline;
+    text-decoration: none;
+    list-style: none;
+    color: royalblue;
+    font-size: 12px;
+    padding: 0;
+}
+
+.movie-poster {
+    float: left;
+}
+
+.movie-content {
+    float: left;
+    width: 80%;
+    margin-left: 10px;
+}
+
+.movie-content h2 {
+    display: inline-block;
+    color: #666666;
+}
+
+.movie-content .vote {
+    display: inline-block;
+    clear: right;
+}
+
+.movie-item .movie-video {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -157px;
+    margin-left: -280px;
+    z-index: 5;
+}
+
+.movie-year {
+    color: gray;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.overview {
+    font-size: 12px;
+}
+
+.movie-item .movie-link {
+    border-radius: 20px;
+    background-color: royalblue;
+    color: white;
+    text-decoration: none;
+    padding: 5px 20px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.stars {
+    width: 150px;
+    height: 26px;
+    display: inline-block;
+    position: relative;
+    background-color: #999999;
+}
+
+.rating-stars {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+}
+
+.rating-stars {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.vote-average {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    background-color: royalblue;
+}
+
+#movie-page {
+    float: left;
+    width: 1005px;
+    background-color: lightgray;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#movie-page .movie-video {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#search-result-list {
+    float: left;
+    width: 1005px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#search-result-list li {
+    list-style: none;
+    background-color: lightgray;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+#search-result-list li a, #search-result-list li img {
+    vertical-align: middle;
+    text-decoration: none;
+    color: gray;
+}
+
+#search-result-list li img  {
+    margin-right: 10px;
 }

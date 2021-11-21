@@ -35,7 +35,15 @@ class SearchMovieActionController extends AbstractController
         $movies = $this->movieProvider->searchMovies($search);
 
         if ($request->isXmlHttpRequest()) {
-            return $this->json($movies);
+            $data = [];
+            foreach ($movies as $movie) {
+                $data[] = [
+                  'id' => $movie->id,
+                  'title' => $movie->title,
+                ];
+            }
+
+            return $this->json($data);
         }
 
         return $this->render('movie-search.action.html.twig', [

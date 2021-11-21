@@ -3,9 +3,10 @@
 namespace App\Provider\TmDb;
 
 use App\Model\MovieGenre;
+use App\Provider\MovieGenreProviderInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
-class MovieGenreProvider implements \App\Provider\MovieGenreProviderInterface
+class MovieGenreProvider implements MovieGenreProviderInterface
 {
     use ProviderTrait;
 

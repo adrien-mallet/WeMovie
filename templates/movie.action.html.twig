@@ -3,9 +3,11 @@
 {% block title %}{{ movie.title }}{% endblock %}
 
 {% block body %}
-{{ show_menu() }}
 <main>
-    <h1>{{ movie.title }}</h1>
+    {{ include('include/header.include.html.twig', {title: movie.title}, with_context = false) }}
+    {{ show_menu() }}
+    <article id="movie-page">
     {{ include('include/movie.include.html.twig', {movie: movie}, with_context = false) }}
+    </article>
 </main>
 {% endblock %}

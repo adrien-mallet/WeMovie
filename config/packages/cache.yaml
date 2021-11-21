@@ -1,5 +1,11 @@
 framework:
     cache:
+        directory: '%kernel.cache_dir%/pools'
+        app: cache.adapter.filesystem
+        system: cache.adapter.filesystem
+        pools:
+            tmdb.cache:
+                adapter: cache.app
         # Unique name of your app: used to compute stable namespaces for cache keys.
         #prefix_seed: your_vendor_name/app_name
 
